@@ -33,8 +33,7 @@ jobs:
     - name: Docker Image Build and upload to ECR
       run: |
         echo "Building Docker Image"
-        docker build -t spring-boot-hello-world .
-          
+        docker build -t spring-boot-hello-world . 
         echo "Succesfully built image ---- Pushing to ECR"
         docker tag spring-boot-hello-world:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/spring-boot-hello-world:latest
         docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.${{ secrets.AWS_REGION }}.amazonaws.com/spring-boot-hello-world:latest
