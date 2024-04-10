@@ -42,3 +42,4 @@ jobs:
     - name: Deployment to EKS
       run: |
         aws eks --region ${{ secrets.AWS_REGION }} update-kubeconfig --name demo
+        kubectl rollout restart deploy spring-boot-hello-world -n prod
